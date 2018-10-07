@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import math as m
+from scipy import optimize
 def adelante(f,x,dx=1e-8):
     return (f(x+dx)-f(x))/dx
 def central(f,x,dx=1e-8):
@@ -28,6 +29,8 @@ def bisectriz(f,a,b,error=1e-10):
             a=c
             c=(a+b)/2.0
     return c
-def interpolacion(f,a,b,error=1e-10):
-    FX=f(a) +((f(b)-f(a))/(b-a)) *(x-a)
-    
+def newton_sp(f,x):
+    return optimize.newton(f,x)
+"""def interpolacion(f,a,b,error=1e-10):
+    FX=f(a)+((f(b)-f(a))/(b-a)) *(x-a)
+   """ 
